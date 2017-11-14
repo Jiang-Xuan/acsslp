@@ -1,4 +1,4 @@
-const path = require('path')
+const fs = require('fs')
 const { exec } = require('child_process')
 const nodemailer = require('nodemailer')
 
@@ -19,7 +19,7 @@ const ssconfig = `
 const ssconfigPath = '/etc/shadowsocks.json'
 const supervisorctlRestartSSShell = 'supervisorctl restart shadowsocks'
 
-path.writeFileSync(ssconfigPath, ssconfig)
+fs.writeFileSync(ssconfigPath, ssconfig)
 
 exec(supervisorctlRestartSSShell, (err, stdout, stderr) => {
     console.log(err, stdout, stderr)

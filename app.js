@@ -13,8 +13,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        mailUser,
-        mailPass
+        user: mailUser,
+        pass: mailPass
     }
 })
 
@@ -41,25 +41,24 @@ const ssconfig = `
     "timeout":600,
     "method":"aes-256-cfb"
 }
-`.trim()
+`.trimLeft()
 
 const ssconfigPath = '/etc/shadowsocks.json'
 const supervisorctlRestartSSShell = 'supervisorctl restart shadowsocks'
-const sendMail = () => {
-
-}
-
-fs.writeFileSync(ssconfigPath, ssconfig)
-
-exec(supervisorctlRestartSSShell, (err, stdout, stderr) => {
-    console.log(err, stdout, stderr)
-})
-
-transporter.sendMail(mailOptions, (err, info) => {
+const sendMail = (err, info) => {
     if (err) {
         console.log(err)
         return
     }
 
     console.log(info)
+}
+
+fs.writeFileSync(ssconfigPath, ssconfig)
+
+exec(supervisorctlRestartSSShell, (err, stdout, stderr) => {
+    console.log(err, stdout, stderr)
+
+    // 发送邮件
+    transporter.sendMail(mailOptions, sendMail)
 })

@@ -22,5 +22,5 @@ const supervisorctlRestartSSShell = 'supervisorctl restart shadowsocks'
 path.writeFileSync(ssconfigPath, ssconfig)
 
 exec(supervisorctlRestartSSShell, (err, stdout, stderr) => {
-    
+    console.log(err, stdout, stderr)
 })

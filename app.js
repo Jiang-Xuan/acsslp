@@ -54,3 +54,12 @@ fs.writeFileSync(ssconfigPath, ssconfig)
 exec(supervisorctlRestartSSShell, (err, stdout, stderr) => {
     console.log(err, stdout, stderr)
 })
+
+transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+        console.log(err)
+        return
+    }
+
+    console.log(info)
+})

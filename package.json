@@ -1,0 +1,23 @@
+{
+  "name": "acsslp",
+  "version": "1.0.0",
+  "description": "auto change shadowsocks listen port",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiang-Xuan/acsslp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jiang-Xuan/acsslp/issues"
+  },
+  "homepage": "https://github.com/Jiang-Xuan/acsslp#readme",
+  "dependencies": {
+    "nodemailer": "^4.4.0"
+  }
+}

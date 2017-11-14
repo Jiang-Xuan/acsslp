@@ -23,7 +23,7 @@ const mailOptions = {
     to: '**********',
     subject: 'ss服务器更新',
     html: `
-        <h1>您好, 您的ss服务器已经更新, 请及时更新您的ss配置文件</h1>
+        <h1>您好, 您的ss服务器监听端口已经更新, 请及时更新您的ss配置文件</h1>
         <p>
             <span>您的ss服务器的监听端口已经动态修改为</span>
             <strong>${randomPort}.</strong>
